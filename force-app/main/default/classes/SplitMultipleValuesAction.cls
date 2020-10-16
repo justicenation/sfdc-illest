@@ -19,21 +19,21 @@ global with sharing class SplitMultipleValuesAction {
         label='Split Multiple Values'
         description='Split multiple values from a checkbox group or a multi-select picklist into a collection.'
     )
-    global static List<List<String>> SplitMultipleValuesAction(List<String> valueList) {
+    global static List<String> SplitMultipleValuesAction(List<String> valueList) {
         
-        // Initialize the list of collections to return
-        List<List<String>> collectionList = new List<List<String>>();
+        // Initialize the list of values to
+        List<String> splitValueList = new List<String>();
 
         if (valueList != null) {
             for (String each : valueList) {
-                collectionList.add(
+                splitValueList.addAll(
                     each == null ? new List<String>()
                                  : each.trim().split('\\s*;\\s*')
                 );
             }
         }
         
-        // Return the list of collections
-        return collectionList;
+        // Return the list of values
+        return splitValueList;
     }
 }
