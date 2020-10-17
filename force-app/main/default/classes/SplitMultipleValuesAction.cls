@@ -19,35 +19,22 @@ global with sharing class SplitMultipleValuesAction {
         label='Split Multiple Values'
         description='Split multiple values from a checkbox group or a multi-select picklist into a collection.'
     )
-    global static List<Result> execute(List<String> valueList) {
+    global static List<List<String>> execute(List<String> inputList) {
         
-        // Initialize the results to return
-        List<Result> resultList = new List<Result>();
+        // Initialize the list of outputs to return,
+        // where each output is a list of the split values.
+        List<List<String>> outputList = new List<List<String>>();
 
-        if (valueList != null) {
-            for (String each : valueList) {
-                resultList.add(new Result(
+        if (inputList != null) {
+            for (String each : inputList) {
+                outputList.add(
                     each == null ? new List<String>()
                                  : each.trim().split('\\s*;\\s*')
-                ));
+                );
             }
         }
         
-        // Return the list of results
-        return resultList;
-    }
-
-    /**
-     * The result from processing one value in the list of inputs.
-     */
-    global class Result {
-
-        @AuraEnabled
-        @InvocableVariable
-        global List<String> valueList;
-
-        global Result(List<String> valueList) {
-            this.valueList = valueList;
-        }
+        // Return the list of outputs
+        return outputList;
     }
 }
