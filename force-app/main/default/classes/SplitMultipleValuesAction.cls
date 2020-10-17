@@ -19,7 +19,7 @@ global with sharing class SplitMultipleValuesAction {
         label='Split Multiple Values'
         description='Split multiple values from a checkbox group or a multi-select picklist into a collection.'
     )
-    global static List<String> SplitMultipleValuesAction(List<String> valueList) {
+    global static List<String> execute(List<String> valueList) {
         
         // Initialize the list of values to
         List<String> splitValueList = new List<String>();
