@@ -1,4 +1,4 @@
-global with sharing class SplitMultipleValuesAction {
+global with sharing class StringFlow {
     
     /**
      * Given a value returned by a checkbox group or a multi-select picklist,
@@ -19,7 +19,7 @@ global with sharing class SplitMultipleValuesAction {
         label='Split Multiple Values'
         description='Split multiple values from a checkbox group or a multi-select picklist into a collection.'
     )
-    global static List<List<String>> execute(List<String> inputList) {
+    global static List<List<String>> splitMultipleValues(List<String> inputList) {
         
         // Initialize the list of outputs to return,
         // where each output is a list of the split values.
