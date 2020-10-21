@@ -50,7 +50,7 @@ private without sharing class StringFlowTest {
             System.assertEquals(
                 expectedList.size(),
                 actualList.size(),
-                'actualList.size() for ' + each
+                'actualList.size() for ' + (each == null ? 'null' : each)
             );
 
             for (Integer i = 0; i < actualList.size(); i++) {
@@ -58,8 +58,8 @@ private without sharing class StringFlowTest {
                 String actualValue = actualList.get(i);
 
                 System.assertEquals(
-                    expectedValue,
-                    actualValue,
+                    '\"' + expectedValue + '\"',
+                    '\"' + actualValue + '\"',
                     'actualList.get(' + i + ') for ' + each
                 );
             }
