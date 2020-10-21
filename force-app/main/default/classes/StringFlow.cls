@@ -26,11 +26,33 @@ global with sharing class StringFlow {
         List<List<String>> outputList = new List<List<String>>();
 
         if (inputList != null) {
-            for (String each : inputList) {
-                outputList.add(
-                    each == null ? new List<String>()
-                                 : each.trim().split('\\s*;\\s*')
-                );
+            for (String eachInput : inputList) {
+
+                // Initialize the output and add it to the list
+                List<String> output = new List<String>();
+                outputList.add(output);
+
+                // If there's input to parse, parse it.
+                if (eachInput != null) {
+                    
+                    // A single value is considered a special case that needs
+                    // not be split.
+                    if (eachInput.indexOf(';') < 0) {
+                        output.add(eachInput.trim());
+                    }
+                    else {
+
+                        // Iterate through the split parts to remove artificial
+                        // boundaries, because native Salesforce `split` will
+                        // take ';;' and return an empty array.
+                        for (String eachValue : eachInput.trim().replaceAll(
+                            '\\s*;\\s*',
+                            '--boundary--; --boundary--'
+                        ).split('; ')) {
+                            output.add(eachValue.replaceAll('--boundary--', ''));
+                        }
+                    }
+                }
             }
         }
         
