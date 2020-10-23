@@ -4,8 +4,8 @@
             "path": "force-app",
             "default": true,
             "package": "Flow Catalyst",
-            "versionName": "ver 0.1",
-            "versionNumber": "0.1.0.NEXT"
+            "versionName": "Gamma",
+            "versionNumber": "1.0.0.NEXT"
         }
     ],
     "namespace": "Illest",
