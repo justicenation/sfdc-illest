@@ -5,7 +5,8 @@
             "default": true,
             "package": "Flow Catalyst",
             "versionName": "Gamma One",
-            "versionNumber": "1.1.0.NEXT"
+            "versionNumber": "1.1.1.NEXT",
+            "ancestorId": "Flow Catalyst@1.1.0-1"
         }
     ],
     "namespace": "Illest",
@@ -15,6 +16,8 @@
         "Flow Catalyst": "0Ho2E0000004CCqSAM",
         "Flow Catalyst@0.1.0-1": "04t2E000003DkTTQA0",
         "Flow Catalyst@1.0.0-1": "04t2E000003DkTiQAK",
-        "Flow Catalyst@1.1.0-1": "04t2E000003DkoNQAS"
+        "Flow Catalyst@1.1.0-1": "04t2E000003DkoNQAS",
+        "Flow Catalyst@1.1.0-2": "04t2E000003DkoSQAS",
+        "Flow Catalyst@1.1.1-1": "04t2E000003DkoXQAS"
     }
 }
