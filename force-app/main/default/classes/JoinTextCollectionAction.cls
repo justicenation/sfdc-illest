@@ -20,8 +20,8 @@ global with sharing class JoinTextCollectionAction {
             if (input.enclosure != null) {
                 each = input.enclosure +
                         each.replaceAll(
-                            input.enclosure,
-                            input.getEscapedEnclosure()
+                            formatRegExp(input.enclosure),
+                            formatRegExp(input.getEscapedEnclosure())
                         ) +
                         input.enclosure;
             }
@@ -52,6 +52,13 @@ global with sharing class JoinTextCollectionAction {
 
         // Return the list of outputs
         return outputList;
+    }
+
+    global static String formatRegExp(String naive) {
+        return naive.replaceAll(
+            '\\\\',
+            '\\\\\\\\\\\\'
+        );
     }
     
     global class Input {
