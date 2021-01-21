@@ -5,7 +5,7 @@ global with sharing class JoinTextCollectionAction {
         description='Concatenate a list of text values with optional delimiters and enclosures.'
     )
     global static List<String> execute(
-        List<JoinTextCollectionInput> inputList
+        List<Input> inputList
     ) {
 
         // Initialize the list of outputs to return.
@@ -17,7 +17,7 @@ global with sharing class JoinTextCollectionAction {
         return outputList;
     }
     
-    global class JoinTextCollectionInput {
+    global class Input {
 
         @InvocableVariable(label='Delimiter')
         global String delimiter;
